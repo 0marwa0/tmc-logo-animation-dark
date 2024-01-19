@@ -15,6 +15,7 @@
 }
 body{
   background-color: black;
+  overflow: hidden;
 }
 :root {
   --color1: #ff6969;
