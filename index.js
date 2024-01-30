@@ -1,28 +1,29 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
+  window.scrollBy(0, document.documentElement.scrollHeight);
   function generateDrops() {
-    const dropsDiv = document.getElementById("drops");
+    const dropsDiv = document.getElementById('drops');
     for (let i = 1; i <= 14; i++) {
-      const drop = document.createElement("div");
-      drop.className = "drop drop" + i;
+      const drop = document.createElement('div');
+      drop.className = 'drop drop' + i;
       dropsDiv.appendChild(drop);
     }
   }
   generateDrops();
   function createLetterElement(text, num) {
-    const letterContainer = document.createElement("div");
-    letterContainer.className = "letter hideLetter";
+    const letterContainer = document.createElement('div');
+    letterContainer.className = 'letter hideLetter';
     if (num === 12) {
-      letterContainer.className = "letter";
+      letterContainer.className = 'letter';
     } else {
-      letterContainer.className = "letter hideLetter";
+      letterContainer.className = 'letter hideLetter';
     }
-    const textContentContainer = document.createElement("div");
+    const textContentContainer = document.createElement('div');
     textContentContainer.className = `text-content t${num}`;
-    const letterBgContainer = document.createElement("div");
+    const letterBgContainer = document.createElement('div');
     letterBgContainer.className = `letter-bg-${num}`;
     if (num === 12) {
-      const slideLeft = document.createElement("div");
-      slideLeft.className = "slide-left";
+      const slideLeft = document.createElement('div');
+      slideLeft.className = 'slide-left';
       slideLeft.textContent = text;
       letterBgContainer.appendChild(slideLeft);
     } else {
@@ -30,38 +31,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     textContentContainer.appendChild(letterBgContainer);
     letterContainer.appendChild(textContentContainer);
-    const circleContainer = document.createElement("div");
-    circleContainer.className = "circle-container";
+    const circleContainer = document.createElement('div');
+    circleContainer.className = 'circle-container';
     for (let i = 0; i < 12; i++) {
-      const circle = document.createElement("div");
+      const circle = document.createElement('div');
       circle.className = `circle c${num}`;
       circleContainer.appendChild(circle);
     }
     letterContainer.appendChild(circleContainer);
-    const lettersDiv = document.getElementById("letters");
+    const lettersDiv = document.getElementById('letters');
     lettersDiv.appendChild(letterContainer);
   }
   const letters = [
-    "<",
-    "t",
-    "e",
-    "a",
-    "c",
-    "h",
-    "m",
-    "e",
-    "c",
-    "o",
-    "d",
-    "e",
-    "/",
-    ">",
+    '<',
+    't',
+    'e',
+    'a',
+    'c',
+    'h',
+    'm',
+    'e',
+    'c',
+    'o',
+    'd',
+    'e',
+    '/',
+    '>',
   ];
   for (let i = 1; i <= letters.length; i++) {
     createLetterElement(letters[i - 1], i);
   }
   function setDropsDelays(startDelay, k) {
-    const drops = document.querySelectorAll(".drop");
+    const drops = document.querySelectorAll('.drop');
     let delay = startDelay;
 
     drops.forEach((drop, index) => {
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setLetterBgDelays(5, 14);
   setDropsDelays(1, 0.3);
   function repeatAnimation() {
-    var container = document.getElementById("main");
+    var container = document.getElementById('main');
 
     if (container) {
       var parent = container.parentNode;
